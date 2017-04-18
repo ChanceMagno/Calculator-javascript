@@ -7,12 +7,34 @@ gulp.task('myTask', function(){
   console.log('hello gulp');
 });
 
+// gulp.task('jsBrowserify', function() {
+//   return browserify({ entries: ['./js/pingpong-interface.js'] })
+//     .bundle()
+//     .pipe(source('app.js'))
+//     .pipe(gulp.dest('./build/js'));
+// });
+
 gulp.task('jsBrowserify', function() {
-  return browserify({ entries: ['./js/pingpong-interface.js'] })
+  return browserify({ entries: ['./js/weather-interface.js', './js/pingpong-interface.js'] })
     .bundle()
     .pipe(source('app.js'))
     .pipe(gulp.dest('./build/js'));
 });
 
+gulp.task('serve', function() {
+  browserSync.init({
+    server: {
+      baseDir: "./",
+      index: "index.html"
+    }
+  });
 
+  gulp.watch(['js/*.js'], ['jsBuild']);
+  gulp.watch(['bower.json'], ['bowerBuild']);
+  gulp.watch(['*.html'], ['htmlBuild']);
+});
+
+gulp.task('htmlBuild', function() {
+  browserSync.reload();
+});
 //more dependencies will be added here.

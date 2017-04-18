@@ -22,7 +22,7 @@ function Calculator(skinName) {
 Calculator.prototype.pingPong = function(goal) {
   var output = [];
   for (var i = 1; i <= goal; i++) {
-    if (i % 10 === 0) {
+    if (i % 15 === 0) {
       output.push("ping-pong");
     } else if (i % 3 === 0) {
       output.push("ping");
@@ -37,4 +37,18 @@ Calculator.prototype.pingPong = function(goal) {
 
 exports.calculatorModule = Calculator;
 
-},{}]},{},[1]);
+},{}],3:[function(require,module,exports){
+var apiKey = "daa0dea45b2dbdba457cfb161d422e8c";
+
+$(document).ready(function() {
+  $('#weather-location').click(function() {
+    var city = $('#location').val();
+    $('#location').val("");
+    $('.showWeather').text("The city you have chosen is " + city + ".");
+    $.get('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + apiKey, function(response) {
+      $('.showWeather').text("The humidity in " + city + " is " + response.main.humidity + "%, " + "The longitude of " + city + " is " + response.coord.lon + ", " + " and The latitude of " + city + " is " + response.coord.lat + ".");
+    });
+  });
+});
+
+},{}]},{},[3,1]);

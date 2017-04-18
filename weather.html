@@ -1,0 +1,35 @@
+
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script type="text/javascript" src="build/js/app.js"></script>
+    <title>Weather</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Get Weather Conditions From Anywhere!</h1>
+      <label for="location">Enter a location:</label>
+      <input id="location" type="text">
+      <button class="btn-success" id="weather-location">Get Current Humidity!</button>
+      <div class="showWeather"></div>
+    </div>
+    <h3>My Google Maps Demo</h3>
+    <div id="map"></div>
+    <script>
+      function initMap() {
+        var uluru = {lat: -25.363, lng: 131.044};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBR34UJTOK0Es6ZNSrPe69KfSNPiJwH1BU&callback=initMap">
+    </script>
+  </body>
+</html>

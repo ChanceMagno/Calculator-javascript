@@ -11,6 +11,16 @@
   "devDependencies": {
     "browserify": "^14.3.0",
     "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
     "vinyl-source-stream": "^1.1.0"
-  }
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChanceMagno/Calculator-javascripte.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ChanceMagno/Calculator-javascripte/issues"
+  },
+  "homepage": "https://github.com/ChanceMagno/Calculator-javascripte#readme"
 }
