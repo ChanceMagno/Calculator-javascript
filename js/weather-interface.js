@@ -1,12 +1,15 @@
-var apiKey = "daa0dea45b2dbdba457cfb161d422e8c";
+
+var Weather = require('./../js/weather.js').weatherModule;
+
+var displayHumidity = function(city, humidityData) {
+  $('.showWeather').text("The humidity in " + city + " is " + humidityData + "%");
+}
 
 $(document).ready(function() {
+  var currentWeatherObject = new Weather();
   $('#weather-location').click(function() {
     var city = $('#location').val();
     $('#location').val("");
-    $('.showWeather').text("The city you have chosen is " + city + ".");
-    $.get('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + apiKey, function(response) {
-      $('.showWeather').text("The humidity in " + city + " is " + response.main.humidity + "%, " + "The longitude of " + city + " is " + response.coord.lon + ", " + " and The latitude of " + city + " is " + response.coord.lat + ".");
-    });
+    currentWeatherObject.getWeather(city, displayHumidity);
   });
 });

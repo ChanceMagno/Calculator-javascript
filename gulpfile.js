@@ -4,7 +4,7 @@ var source = require('vinyl-source-stream');
 
 
 gulp.task('myTask', function(){
-  console.log('hello gulp');
+  console.log('hello Taylor');
 });
 
 // gulp.task('jsBrowserify', function() {
@@ -14,7 +14,7 @@ gulp.task('myTask', function(){
 //     .pipe(gulp.dest('./build/js'));
 // });
 
-gulp.task('jsBrowserify', function() {
+gulp.task('browserify', function() {
   return browserify({ entries: ['./js/weather-interface.js', './js/pingpong-interface.js'] })
     .bundle()
     .pipe(source('app.js'))
